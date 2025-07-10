@@ -4,13 +4,14 @@ import { getPlayerById } from '@/hooks/usePlayer';
 import { transformPlayerData, getPlayerIdFromParams } from '@/utils/playerHelpers';
 
 interface PlayerPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function PlayerPage({ params }: PlayerPageProps) {
-  const playerId = getPlayerIdFromParams(params);
+  const resolvedParams = await params;
+  const playerId = getPlayerIdFromParams(resolvedParams);
   const player = await getPlayerById(playerId);
   
   if (!player) {
@@ -24,7 +25,8 @@ export default async function PlayerPage({ params }: PlayerPageProps) {
 
 // 動的メタデータの生成
 export async function generateMetadata({ params }: PlayerPageProps) {
-  const playerId = getPlayerIdFromParams(params);
+  const resolvedParams = await params;
+  const playerId = getPlayerIdFromParams(resolvedParams);
   const player = await getPlayerById(playerId);
   
   if (!player) {
