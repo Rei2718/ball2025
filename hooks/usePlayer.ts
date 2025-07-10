@@ -1,8 +1,8 @@
 import { createClient } from "@/supabase/server";
-import { Player } from '@/schema';
+import { Player, CurrentPlayer } from '@/schema';
 
 // プレイヤー一覧を取得するサーバーサイド関数
-export async function getPlayers() {
+export async function getPlayers(): Promise<Player[]> {
   const supabase = await createClient();
   
   const { data: players, error } = await supabase
@@ -15,7 +15,7 @@ export async function getPlayers() {
     return [];
   }
   
-  return players;
+  return players || [];
 }
 
 // 特定のプレイヤーを取得するサーバーサイド関数
@@ -36,7 +36,7 @@ export async function getPlayerById(id: string): Promise<Player | null> {
 }
 
 // 現在選択されているプレイヤーを取得
-export async function getCurrentPlayer() {
+export async function getCurrentPlayer(): Promise<(CurrentPlayer & { players: Player }) | null> {
   const supabase = await createClient();
   
   const { data, error } = await supabase
@@ -51,5 +51,5 @@ export async function getCurrentPlayer() {
     return null;
   }
   
-  return data;
+  return data as CurrentPlayer & { players: Player };
 }

@@ -1,17 +1,6 @@
 import Image from 'next/image';
 import { memo } from 'react';
-
-// プレイヤーデータの整形
-interface PlayerCardData {
-  name: string;
-  position: string;
-  year: number;
-  chantTitle: string;
-  chantSubtitle: string;
-  chantLyrics: string[];
-  number: number | null;
-  image: string | null;
-}
+import { PlayerCardData } from '@/schema';
 
 interface PlayerCardProps {
   player: PlayerCardData;

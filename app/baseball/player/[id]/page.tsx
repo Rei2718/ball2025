@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { PlayerCard } from '@/components/baseball/PlayerCard';
-import { createClient } from '@/supabase/server';
+import { getPlayerById } from '@/hooks/usePlayer';
 import { transformPlayerData, getPlayerIdFromParams } from '@/utils/playerHelpers';
 
 interface PlayerPageProps {
@@ -9,26 +9,9 @@ interface PlayerPageProps {
   };
 }
 
-// プレイヤーデータを取得
-async function getPlayer(id: string) {
-  const supabase = await createClient();
-  
-  const { data: player, error } = await supabase
-    .from('players')
-    .select('*')
-    .eq('id', id)
-    .single();
-    
-  if (error || !player) {
-    return null;
-  }
-  
-  return player;
-}
-
 export default async function PlayerPage({ params }: PlayerPageProps) {
   const playerId = getPlayerIdFromParams(params);
-  const player = await getPlayer(playerId);
+  const player = await getPlayerById(playerId);
   
   if (!player) {
     notFound();
@@ -42,7 +25,7 @@ export default async function PlayerPage({ params }: PlayerPageProps) {
 // 動的メタデータの生成
 export async function generateMetadata({ params }: PlayerPageProps) {
   const playerId = getPlayerIdFromParams(params);
-  const player = await getPlayer(playerId);
+  const player = await getPlayerById(playerId);
   
   if (!player) {
     return {

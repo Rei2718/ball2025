@@ -1,26 +1,9 @@
 import Link from 'next/link';
-import { createClient } from '@/supabase/server';
+import { getPlayers } from '@/hooks/usePlayer';
 import { Player } from '@/schema';
 
-// プレイヤー一覧を取得
-async function getPlayers() {
-  const supabase = await createClient();
-  
-  const { data: players, error } = await supabase
-    .from('players')
-    .select('*')
-    .order('player_number', { ascending: true });
-    
-  if (error) {
-    console.error('Error fetching players:', error);
-    return [];
-  }
-  
-  return players;
-}
-
 // ポジションごとにグループ化
-function groupPlayersByPosition(players: Player[]) {
+function groupPlayersByPosition(players: Player[]): Record<string, Player[]> {
   const grouped = players.reduce((acc, player) => {
     const position = player.position;
     if (!acc[position]) {

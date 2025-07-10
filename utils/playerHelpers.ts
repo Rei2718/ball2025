@@ -1,7 +1,7 @@
-import { Player } from "@/schema";
+import { Player, PlayerCardData } from "@/schema";
 
 // DBのプレイヤーデータをコンポーネント用に変換
-export function transformPlayerData(player: Player) {
+export function transformPlayerData(player: Player): PlayerCardData {
   // 歌詞を改行で分割
   const lyrics = player.lyric ? player.lyric.split('\n').filter(line => line.trim() !== '') : [];
   
