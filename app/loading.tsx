@@ -1,10 +1,7 @@
-export default function PlayerLoading() {
+export default function Loading() {
   return (
-    <div className="flex-1 flex items-center justify-center">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
-        <p className="text-white/60">読み込み中...</p>
-      </div>
+    <div className="flex justify-center">
+      <div className="h-7 w-7 animate-spin rounded-full border-2 border-green-400 border-t-transparent" />
     </div>
-  );
+  )
 }

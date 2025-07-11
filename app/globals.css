@@ -12,34 +12,149 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* スクロールバーのカスタマイズ */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 0px;
+  height: 0px;
 }
 
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
+html {
+  scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
+.flash {
+  animation: flicker 2.1s infinite alternate;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
+.flash_button {
+  animation: flicker 2.1s infinite alternate;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.8;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  30% {
+    opacity: 0.6;
+  }
+  40% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 0.4;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+
+
+@keyframes scroll {
+  0% {
+    height: 0%;
+    top: 0px;
+    bottom: auto;
+  }
+  46% {
+    height: 100%;
+    top: 0px;
+    bottom: auto;
+  }
+  50% {
+    height: 100%;
+    bottom: 0px;
+    top: auto;
+  }
+  54% {
+    height: 100%;
+    bottom: 0px;
+    top: auto;
+  }
+  100% {
+    height: 0%;
+    bottom: 0px;
+    top: auto;
+  }
+}
+
+.scroll::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  display: block;
+  top: 0;
+  background: linear-gradient(to top, rgba(226,225,210,1), rgba(0, 0, 0, 0));
+  animation: scroll 1.5s linear infinite;
+}
+
+
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+
+@theme inline {
+  --animate-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    to {
+      background-position:
+        350% 50%,
+        350% 50%;
+    }
+  }
 }
