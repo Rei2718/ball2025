@@ -106,7 +106,7 @@ export default async function PlayerScreen({ params }: PageProps) {
                 {/* Subtle Glow */}
                 <div className="absolute -inset-px bg-gradient-to-r from-green-500/0 via-green-500/20 to-green-500/0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
-                <div className="relative bg-black/1 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10">
+                <div className="relative p-6 sm:p-8 md:p-10">
                   <pre className="text-white/90 text-center leading-relaxed text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-medium whitespace-pre-wrap">
                     {player.lyric}
                   </pre>

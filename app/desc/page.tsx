@@ -50,9 +50,9 @@ export default async function DesScreen() {
             >
               {/* Glow Effect on Hover */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500/0 to-emerald-500/0 group-hover:from-green-500/30 group-hover:to-emerald-500/30 rounded-2xl blur-md transition-all duration-300 opacity-0 group-hover:opacity-100" />
-              
+
               {/* Player Card */}
-              <div className="relative bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 group-hover:border-green-500/30 transition-all duration-300">
+              <div className="relative bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 group-hover:border-green-500/30 transition-all duration-300 min-h-[140px]">
                 <div className="flex items-center justify-between">
                   {/* Player Info */}
                   <div className="flex-1">
@@ -84,13 +84,14 @@ export default async function DesScreen() {
                     </div>
                   )}
                 </div>
-                
-                {/* Hover Arrow Indicator */}
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-2 transition-all duration-300">
-                  <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
+
+                  {/* 詳細リンクを右下に配置 */}
+                  <div className="absolute bottom-4 right-4 inline-flex items-center gap-1 text-sm text-green-400/75 group-hover:text-green-400/95 transition-all duration-300">
+                    <span>詳細を見る</span>
+                    <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
               </div>
             </Link>
           ))}

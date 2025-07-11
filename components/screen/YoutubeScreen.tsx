@@ -59,7 +59,7 @@ export default function YoutubeSection() {
                   <div className="aspect-video">
                     <iframe
                       className="w-full h-full"
-                      src="https://www.youtube.com/embed/jfKfPfyJRdk?si=PflCs7ooVOCJUXi9&autoplay=1&mute=1&loop=1&rel=0&modestbranding=1"
+                      src="https://www.youtube.com/embed/2ToW26trmg8?si=2xs765joWUuTYydQ&autoplay=1&mute=1&loop=1&rel=0&modestbranding=1"
                       title="Gameplay Demo"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerPolicy="strict-origin-when-cross-origin"
