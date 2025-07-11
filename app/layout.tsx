@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Zen_Kurenaido } from 'next/font/google';
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const zenKurenaido = Zen_Kurenaido({
@@ -79,6 +80,7 @@ export default function RootLayout({
         className={`${zenKurenaido.className} antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
