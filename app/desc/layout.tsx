@@ -32,11 +32,27 @@ export default function DesScreenLayout({
           </div>
 
           {/* Footer */}
-          <footer className="py-8">
-            <div className="container mx-auto px-6">
-              <div className="flex justify-center">
-                <p className="text-xs text-green-400 tracking-[0.2em] uppercase font-medium">
-                  RITSUMEIKAN KEISHO BASEBALL TEAM 2025 MEMBERS
+          <footer className="py-6 mt-auto text-green-400">
+            <div className="container mx-auto px-4">
+              <div className="text-center space-y-2">
+                <p className="text-xs tracking-[0.2em] uppercase font-medium">
+                  RITSUMEIKAN KEISHO BASEBALL TEAM
+                </p>
+                <p className="text-xs text-[var(--secondary)] font-light">
+                  2025 MEMBERS
+                </p>
+              </div>
+
+              <div className="my-4">
+                <div className="w-1/2 h-px bg-green-400/30 mx-auto"></div>
+              </div>
+
+              <div className="text-center space-y-1">
+                <p className="text-xs text-green-400/60">
+                  © 2025 Keisho Technologies. All rights reserved.
+                </p>
+                <p className="text-xs text-green-400/60">
+                  Created by K-Tech
                 </p>
               </div>
             </div>
