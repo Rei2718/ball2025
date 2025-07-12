@@ -14,17 +14,17 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;
   const player = await getPlayer(id);
-  
+
   if (!player) {
     return {
       title: '選手が見つかりません - 立命館慶祥野球部',
       description: '指定された選手の情報が見つかりませんでした。',
     };
   }
-  
+
   const playerTitle = `${player.player_name} - 立命館慶祥野球部`;
   const playerDescription = `${player.position} ${player.grade}年${player.player_number ? ` 背番号${player.player_number}` : ''}`;
-  
+
   return {
     title: playerTitle,
     description: playerDescription,
@@ -38,7 +38,7 @@ export default async function PlayerScreen({ params }: PageProps) {
   if (!player) {
     notFound();
   }
-  
+
   return (
     <main className="min-h-screen">
 
@@ -54,7 +54,7 @@ export default async function PlayerScreen({ params }: PageProps) {
             <span className="text-sm text-white/50">選手一覧</span>
           </Link>
         </nav>
-        
+
         {/* Player Header - Improved Layout */}
         <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
           {/* Top Section - Number and Basic Info */}
@@ -68,7 +68,7 @@ export default async function PlayerScreen({ params }: PageProps) {
                 </div>
               </div>
             )}
-            
+
             {/* Right Side - Position and Grade */}
             <div className="text-right">
               <div className="inline-block text-center">
@@ -80,7 +80,7 @@ export default async function PlayerScreen({ params }: PageProps) {
               </div>
             </div>
           </div>
-          
+
           {/* Center Section - Player Name */}
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none">
@@ -89,33 +89,33 @@ export default async function PlayerScreen({ params }: PageProps) {
               </span>
             </h1>
           </div>
-          
+
           {/* Divider */}
           <div className="mt-6 sm:mt-8 text-center">
             <div className="h-[2px] w-11/12 bg-gradient-to-r from-transparent via-green-500/30 to-transparent inline-block" />
           </div>
         </div>
-        
+
         {/* Lyric Section - Improved */}
         {player.lyric && (
           <section className="max-w-3xl mx-auto mb-12 sm:mb-16">
             <div className="relative">
-              
+
               {/* Content Card */}
               <div className="relative group">
                 {/* Subtle Glow */}
-                <div className="absolute -inset-px bg-gradient-to-r from-green-500/0 via-green-500/20 to-green-500/0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
+                <div className="absolute -inset-px bg-gradient-to-r from-green-500/0 via-green-500/20 to-green-500/0 rounded-xl sm:rounded-2xl opacity-0 transition-opacity duration-300" />
+
                 <div className="relative p-6 sm:p-8 md:p-10">
                   <pre className="text-white/90 text-center leading-relaxed text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-medium whitespace-pre-wrap">
                     {player.lyric}
                   </pre>
-                  
+
                   {player.music_url && (
                     <div className="mt-6 sm:mt-8 md:mt-10 max-w-md mx-auto">
                       {/* Remove custom background, let native player show through */}
-                      <audio 
-                        controls 
+                      <audio
+                        controls
                         className="w-full h-14 rounded-xl"
                       >
                         <source src={player.music_url} type="audio/mpeg" />
@@ -140,7 +140,7 @@ export default async function PlayerScreen({ params }: PageProps) {
                 </span>
               </div>
             )}
-            
+
             {/* Image Container */}
             <div className="relative z-10 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
               <div className="relative">

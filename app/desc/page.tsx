@@ -26,14 +26,14 @@ export default async function DesScreen() {
               2025 SEASON
             </span>
           </div>
-          
+
           {/* Main Title */}
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">
               チームメンバー
             </span>
           </h1>
-          
+
           {/* Subtitle */}
           <p className="text-white/60 text-lg">
             立命館慶祥野球部 選手一覧
@@ -72,7 +72,7 @@ export default async function DesScreen() {
                       )}
                     </div>
                   </div>
-                  
+
                   {/* Player Number */}
                   {player.player_number !== null && (
                     <div className="relative ml-6">
@@ -85,7 +85,6 @@ export default async function DesScreen() {
                   )}
                 </div>
 
-                  {/* 詳細リンクを右下に配置 */}
                   <div className="absolute bottom-4 right-4 inline-flex items-center gap-1 text-sm text-green-400/75 group-hover:text-green-400/95 transition-all duration-300">
                     <span>詳細を見る</span>
                     <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

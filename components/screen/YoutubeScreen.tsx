@@ -45,7 +45,7 @@ export default function YoutubeSection() {
               <div className="relative group">
                 {/* Glow Effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 to-purple-600/30 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 {/* Video Container */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 backdrop-blur-sm bg-white/5">
                   {/* Play Button Overlay */}
@@ -54,7 +54,7 @@ export default function YoutubeSection() {
                       <Play className="w-8 h-8 text-white ml-1" />
                     </div>
                   </div>
-                  
+
                   {/* Video with aspect ratio */}
                   <div className="aspect-video">
                     <iframe
@@ -76,7 +76,7 @@ export default function YoutubeSection() {
                 <button className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 backdrop-blur-sm hover:from-green-500/20 hover:to-emerald-500/20 hover:border-green-500/30 transition-all duration-300">
                   <Users className="w-5 h-5 text-green-400" />
                   <span className="text-green-400 text-lg font-medium tracking-wide">
-                    選手一覧を見る
+                    選手と応援歌を見る
                   </span>
                   <ChevronRight className="w-5 h-5 text-green-400 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>

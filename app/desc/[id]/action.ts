@@ -3,7 +3,6 @@
 import { createClient } from '@/supabase/server';
 import type { Tables } from '@/schema';
 
-// プレイヤー情報を取得
 export async function getPlayer(id: string): Promise<Tables<'players'> | null> {
   const supabase = await createClient();
 
